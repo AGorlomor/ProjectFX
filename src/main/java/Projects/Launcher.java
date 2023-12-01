@@ -55,7 +55,8 @@ public class Launcher extends Application {
         stage.setX(centerX);
         stage.setY(centerY);
 
-        ImageView logo = new ImageView("logo.png");
+        ImageView logo = new ImageView(getClass().getResource("/logo.png").toExternalForm());
+
         logo.setLayoutX(0);
         logo.setLayoutY(0);
 

@@ -1,7 +1,6 @@
 package Projects;
 
 import javafx.application.Application;
-import javafx.event.Event;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -81,8 +80,7 @@ public class A32_TM_ClientView extends Application {
                 connectButton.setDisable(true);
             }
             else {
-                Alert alert = new Alert(Alert.AlertType.WARNING, "Port number is not an integer, please enter an valid port number");
-            alert.showAndWait();
+                showAlertAndWait("Port number is not an integer, please enter an valid port number");
             }
 
 
@@ -109,7 +107,7 @@ public class A32_TM_ClientView extends Application {
         receiveButton = new Button("receive");
         receiveButton.setOnAction(Event->{
             try {
-                clientController.recieveModel();
+                clientController.receiveModel();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -144,8 +142,10 @@ public class A32_TM_ClientView extends Application {
         }catch (Exception e) {
             return false;
         }
-
-
+    }
+    public void showAlertAndWait(String alertText){
+        Alert alert = new Alert(Alert.AlertType.WARNING, alertText);
+        alert.showAndWait();
     }
 
 }

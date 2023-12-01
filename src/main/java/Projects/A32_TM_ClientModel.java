@@ -19,7 +19,8 @@ public class A32_TM_ClientModel {
         String serverMsg = data.substring(data.substring(data.indexOf("#")+1,data.length()).indexOf("#")+3, data.length());
         return serverMsg;
     }
-
-
+    public boolean isValidModel(){
+        return false;
+    }
 
 }

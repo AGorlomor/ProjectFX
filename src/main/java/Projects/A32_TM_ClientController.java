@@ -1,6 +1,5 @@
 package Projects;
 
-import javafx.application.Application;
 import javafx.stage.Stage;
 import java.net.*;
 import java.io.*;
@@ -64,52 +63,27 @@ public class A32_TM_ClientController {
     public void connectToServer(String hostName, String portNumber){
         this.hostName = hostName;
         this.portNumber = Integer.parseInt(portNumber);
-        clientView.appendToOutput("Connecting with server on " + hostName + " at port " + portNumber);
-        clientView.appendToOutput("Starting Server Thread on port " + portNumber);
-
+        clientView.appendToOutput("Connecting to server on " + hostName + " at port " + portNumber);
         try {
             this.sock = new Socket(hostName, Integer.parseInt(portNumber));
             this.dis = new BufferedReader(new InputStreamReader(sock.getInputStream()));
-            this.strcliid = dis.readLine();
+            this.strcliid = this.dis.readLine();
             clientView.appendToOutput("Client no." + strcliid + "...");
             connected = true;
-            String consoleData;
-            String serverData;
-            ///DataInputStream inConsole = new DataInputStream(System.in);
-            //BufferedReader inConsole = new BufferedReader(new InputStreamReader(System.in));
             clientView.appendToOutput("Client[" + strcliid + "]: ");
-            /**
-            consoleData = inConsole.readLine();
-
-            while (!consoleData.equals("end")) {
-                consoleData = strcliid + "#" + consoleData;
-                dat.println(consoleData);
-                dat.flush();
-                serverData = dis.readLine();
-                clientView.appendToOutput("Server: " + serverData);
-                clientView.appendToOutput("Client[" + strcliid + "]: ");
-                consoleData = inConsole.readLine();
-            }
-
-            consoleData = strcliid + "#" + consoleData;
-            dat.println(consoleData);
-
-            dat.flush();
-
-            sock.close();
-             **/
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
 
     }
-    public void recieveModel() throws IOException {
+    public void receiveModel() throws IOException {
         funcID = "03";
         this.dat = new PrintStream(this.sock.getOutputStream());
         this.dis = new BufferedReader(new InputStreamReader(this.sock.getInputStream()));
         dat.println(clientModel.encodeMsg(strcliid, funcID, "00"));
         dat.flush();
-        model =dis.readLine();
+        String recivedData = dis.readLine();
+        model = clientModel.getServerMsg(recivedData);
         clientView.setmodelTM(clientModel.getServerMsg(model));
         clientView.appendToOutput("Server model:" + model);
 
@@ -118,12 +92,9 @@ public class A32_TM_ClientController {
         funcID = "02";
         this.dat = new PrintStream(this.sock.getOutputStream());
         this.dis = new BufferedReader(new InputStreamReader(this.sock.getInputStream()));
-        // encMassage = strcliid + "#02#" + model;
-        dat.println(clientModel.encodeMsg(strcliid,funcID,model));
-        dat.flush();
-        clientView.appendToOutput(dis.readLine());
-        clientView.appendToOutput(dis.readLine());
-        clientView.appendToOutput(dis.readLine());
+        this.dat.println(this.clientModel.encodeMsg(strcliid,funcID,model));
+        this.dat.flush();
+        this.clientView.appendToOutput(this.dis.readLine());
     }
     public void disconnect() {
         try {
@@ -137,12 +108,12 @@ public class A32_TM_ClientController {
             dat.flush();
 
             // Read the response from the server
-            String serverResponse = dis.readLine();
-            clientView.appendToOutput(serverResponse);
+            String serverResponse = this.dis.readLine();
+            this.clientView.appendToOutput(serverResponse);
 
             // Close the socket
             sock.close();
-            clientView.appendToOutput("Disconnected from the server.");
+            this.clientView.appendToOutput("Disconnected from the server.");
 
             // Update local state for disconnection
             connected = false;
