@@ -72,7 +72,7 @@ public class Launcher extends Application {
 
         // ComboBox
         ComboBox<String> comboBox = new ComboBox<>();
-        comboBox.getItems().addAll("A12[CA] - Cellular Automata", "A22[GoL] - Game of Life", "A32[TM] - Turing Machine");
+        comboBox.getItems().addAll("A12[CA] - Cellular Automata", "A22[GoL] - Game of Life", "A32[TMC] - Client:Turing Machine", "A32[TMS] - Server: Turing Machine");
         comboBox.setValue("Choose");
         comboBox.setMaxSize(100,10);
         comboBox.setLayoutY(50);
@@ -129,9 +129,28 @@ public class Launcher extends Application {
 
                     controller.startView();
                     
-                } else if (selectedOption.equals("A32[TM] - Turing Machine")) {
-                    Alert alert = new Alert(Alert.AlertType.WARNING, "Turing Machine is coming soon (02/12/23)");
-                    alert.showAndWait();
+                } else if (selectedOption.equals("A32[TMC] - Client:Turing Machine")) {
+                    A32_TM_ClientController clientController;
+                    clientController = new  A32_TM_ClientController();
+                    try {
+                        String[] args = {"localhost", "3000"};
+                        clientController.startClientView();
+                        clientController.main(args);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                } else if (selectedOption.equals("A32[TMS] - Server: Turing Machine")) {
+                    A32_TM_ServerController serverController = new A32_TM_ServerController();
+                    A32_TM_ServerView serverView = new A32_TM_ServerView();
+
+                    try {
+                        String[] args = {"3000"};
+                        serverController.main(args);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+
+
                 } else {
                     System.out.println("Selected: " + selectedOption);
                 }
