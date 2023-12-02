@@ -2,6 +2,7 @@ package Projects;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.event.Event;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -97,6 +98,18 @@ public class A32_TM_ClientView extends Application {
         inputLine2 = new HBox(10);
         model = new TextField();
         validateButton = new Button("validate");
+        validateButton.setOnAction(Event->{
+            try {
+                if(clientController.validateModel(model.getText())){
+                    showAlertAndWait("Valid Model! \n you may send the model to the server");
+                }
+                else {
+                    showAlertAndWait("Invalid Model!");
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
         sendButton = new Button("send");
         sendButton.setOnAction(Event->{
             try {
@@ -151,10 +164,21 @@ public class A32_TM_ClientView extends Application {
         alert.showAndWait();
     }
     public MenuBar createMenuBar(){
-        Scene scene = new Scene(new Group(),400,300);
         Menu fileMenu = new Menu("File");
         MenuItem exitMenuItem = new MenuItem("Exit");
         MenuItem closeMenuItem = new MenuItem("Close");
+
+        Menu controlsMenu = new Menu("Controls");
+        MenuItem sentMenuItem = new MenuItem("Send");
+        MenuItem receiveMenuItem = new MenuItem("Receive");
+        MenuItem validateMenuItem = new MenuItem("Validate");
+        MenuItem runMenuItem = new MenuItem("Run");
+
+        Menu networkMenu = new Menu("Network");
+        MenuItem connectMenuItem = new MenuItem("Connect");
+        MenuItem disconnectMenuItem = new MenuItem("Disconnect");
+
+
         exitMenuItem.setOnAction(Event -> {
             Platform.exit();
             System.exit(0);
@@ -162,9 +186,47 @@ public class A32_TM_ClientView extends Application {
         closeMenuItem.setOnAction(Event ->{
             stage.close();
         });
+        sentMenuItem.setOnAction(Event->{
+            try {
+                clientController.sendModel(model.getText());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        receiveMenuItem.setOnAction(Event->{
+            try {
+                clientController.receiveModel();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        validateMenuItem.setOnAction(Event->{
+
+        });
+        runMenuItem.setOnAction(Event->{
+
+        });
+        connectMenuItem.setOnAction(Event->{
+            if(isInt(serverPort.getText())) {
+                clientController.connectToServer(serverAddress.getText(), serverPort.getText());
+                connectButton.setDisable(true);
+            }
+            else {
+                showAlertAndWait("Port number is not an integer, please enter an valid port number");
+            }
+        });
+        disconnectMenuItem.setOnAction(Event->{
+            clientController.disconnect();
+            connectButton.setDisable(false);
+        });
+
+
+
+        networkMenu.getItems().addAll(connectMenuItem,disconnectMenuItem);
+        controlsMenu.getItems().addAll(sentMenuItem,receiveMenuItem,validateMenuItem,runMenuItem);
         fileMenu.getItems().addAll(exitMenuItem,closeMenuItem);
         MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(fileMenu);
+        menuBar.getMenus().addAll(fileMenu,controlsMenu,networkMenu);
         return menuBar;
     }
 

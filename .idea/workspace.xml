@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9da89426-f573-431c-a84b-ed292c67daec" name="Changes" comment="network working version with known issues">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tm-client.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tm-server.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tm.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_ServerModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/Launcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701456668650</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="network working version with known issues">
+      <created>1701538224026</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701538224026</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,13 +168,18 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java</url>
-          <line>78</line>
-          <properties class="Projects.A32_TM_ClientController" method="receiveModel">
+          <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerController.java</url>
+          <line>104</line>
+          <properties class="Projects.A32_TM_ServerController.Worked" method="run">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="25" />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientView.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

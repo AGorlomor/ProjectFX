@@ -22,6 +22,7 @@ import javafx.stage.Stage;
  */
 public class Launcher extends Application {
     private boolean lan_isEnglish = true; //A boolean field used to determine the language setting for the launcher (default is English)
+
     /**
      * A static method that launches the JavaFX application by calling the launch method.
      * This method serves as an entry point to start the application
@@ -33,16 +34,17 @@ public class Launcher extends Application {
     /**
      * An overridden method from the Application class.
      * This method is called when the application is started and is responsible for initializing and displaying the launcher window
+     *
      * @param stage
      * @throws Exception
      */
     @Override
-    public  void start(Stage stage) throws Exception {
+    public void start(Stage stage) throws Exception {
 
         int stageWidth = 500;
         int stageHeight = 125;
         Parent root = new Group();
-        Scene scene = new Scene(root,stageWidth,stageHeight);
+        Scene scene = new Scene(root, stageWidth, stageHeight);
         VBox vbox = new VBox(10);
         vbox.setAlignment(Pos.TOP_LEFT);
         vbox.setStyle("-fx-padding: 10px");
@@ -69,13 +71,13 @@ public class Launcher extends Application {
         Label label = new Label("Select an assignment: ");
         label.setLayoutY(150);
         label.setLayoutX(50);
-        label.setMaxSize(150,10);
+        label.setMaxSize(150, 10);
 
         // ComboBox
         ComboBox<String> comboBox = new ComboBox<>();
         comboBox.getItems().addAll("A12[CA] - Cellular Automata", "A22[GoL] - Game of Life", "A32[TMC] - Client:Turing Machine", "A32[TMS] - Server: Turing Machine");
         comboBox.setValue("Choose");
-        comboBox.setMaxSize(100,10);
+        comboBox.setMaxSize(100, 10);
         comboBox.setLayoutY(50);
 
 
@@ -86,7 +88,7 @@ public class Launcher extends Application {
 
         HBox hboxTop = new HBox(10);
         hboxTop.setAlignment(Pos.TOP_LEFT);
-        hboxTop.getChildren().addAll(logo,label, comboBox,selectButton,closeButton);
+        hboxTop.getChildren().addAll(logo, label, comboBox, selectButton, closeButton);
 
         Label lanLabel = new Label("Select a language:");
         ComboBox lanComboBox = new ComboBox<>();
@@ -99,8 +101,7 @@ public class Launcher extends Application {
         hboxBot.getChildren().addAll(lanLabel, lanComboBox);
 
 
-
-        vbox.getChildren().addAll(hboxTop,hboxBot);
+        vbox.getChildren().addAll(hboxTop, hboxBot);
 
 
         // Event handler for the Select button
@@ -108,8 +109,7 @@ public class Launcher extends Application {
             String selectedOption = comboBox.getValue();
             if (selectedOption != null) {
                 if (selectedOption.equals("A12[CA] - Cellular Automata")) {
-                    if(lanComboBox.getValue().equals("Russian"))
-                    {
+                    if (lanComboBox.getValue().equals("Russian")) {
                         lan_isEnglish = false;
                     }
                     // Switch to the A12CA scene
@@ -121,22 +121,21 @@ public class Launcher extends Application {
                     }
                 } else if (selectedOption.equals("A22[GoL] - Game of Life")) {
                     A22_GL_Controller controller;
-                    if(lanComboBox.getValue().equals("Russian")){
-                        controller= new A22_GL_Controller("Russian");
-                    }
-                    else {
+                    if (lanComboBox.getValue().equals("Russian")) {
+                        controller = new A22_GL_Controller("Russian");
+                    } else {
                         controller = new A22_GL_Controller("English");
                     }
 
                     controller.startView();
-                    
+
                 } else if (selectedOption.equals("A32[TMC] - Client:Turing Machine")) {
-                    A32_TM_ClientController clientController;
-                    clientController = new  A32_TM_ClientController();
+//                    A32_TM_ClientController clientController;
+
                     try {
                         String[] args = {"localhost", "3000"};
-                        clientController.startClientView();
-                        clientController.main(args);
+                        new A32_TM_ClientController();
+//                        clientController.main(args);
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
@@ -184,7 +183,8 @@ public class Launcher extends Application {
     }
 
     /**
-     *The entry point for the JavaFX application. This method calls the execute method to start the application
+     * The entry point for the JavaFX application. This method calls the execute method to start the application
+     *
      * @param args
      */
     public static void main(String[] args) {

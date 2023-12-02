@@ -135,6 +135,13 @@ public class A32_TM_ServerView extends Application {
         Menu fileMenu = new Menu("File");
         MenuItem exitMenuItem = new MenuItem("Exit");
         MenuItem closeMenuItem = new MenuItem("Close");
+
+        Menu networkMenu = new Menu("Network");
+        MenuItem connectMenuItem = new MenuItem("Connect");
+        MenuItem disconnect = new MenuItem("Disconnect");
+
+        Menu controls = new Menu("Controls");
+        MenuItem modelMenuItem = new MenuItem("Model");
         exitMenuItem.setOnAction(Event -> {
             Platform.exit();
             System.exit(0);

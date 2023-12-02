@@ -19,7 +19,7 @@ public class A32_TM_ServerController implements Runnable {
     ProtocolSC protocol;
     static A32_TM_ServerView serverView;
     static Stage stage;
-    String modelTM = "";
+    String modelTM = "00000 01000 10010 11000";
 
     private static Map<Integer, Worked> workedMap = new HashMap<>();
 
@@ -120,9 +120,7 @@ public class A32_TM_ServerController implements Runnable {
                     int secondBreak = data.substring(firstBreak + 1, data.length()).indexOf("#");
                     funchID = data.substring(firstBreak + 1, secondBreak + 2);
                     clientMsg = data.substring(secondBreak + 3, data.length());
-
-                    sendMessageToClient(Integer.parseInt(strcliid), "Cli[" + strcliid + "]: " + data);
-
+                    clientOut.println(Integer.parseInt(strcliid) + "Cli[" + strcliid + "]: " + data);
                     if (clientId != Integer.parseInt(strcliid)) {
                     } else {
                         switch (funchID) {
@@ -133,17 +131,29 @@ public class A32_TM_ServerController implements Runnable {
                                 this.sock.close();
                                 break;
                             case "02":
-                                modelTM = clientMsg;
-                                sendMessageToClient(clientId, "String: \"" + data + "\" received. User: " + strcliid +
-                                        " funcID: " + funchID + " MSG: " + clientMsg + " Server model: " + modelTM);
-                                clientOut.flush();
+                                if (serverModel.isValidModel(clientMsg)) {
+                                    modelTM = clientMsg.replace(" ", "");
+                                    clientOut.println(clientId + "String: \"" + data + "\" received. User: " + " Server model: " + modelTM);
+                                    serverView.appendToOutput(modelTM);
+                                    clientOut.flush();
+                                } else {
+                                    clientOut.println(clientId + "Not valid Model format, Model not set.");
+                                }
+
                                 break;
                             case "03":
+
                                 clientOut.flush();
-                                sendMessageToClient(clientId, modelTM);
+                                clientOut.println(modelTM);
                                 clientOut.flush();
                                 break;
                             case "04":
+                                if (serverModel.isValidModel(clientMsg)) {
+                                    clientOut.println(strcliid + "#04#11");
+                                } else {
+                                    clientOut.println(strcliid + "#04#00");
+                                }
+
                             default:
                         }
                     }
