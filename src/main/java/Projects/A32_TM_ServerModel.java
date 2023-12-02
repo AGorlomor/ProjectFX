@@ -31,7 +31,7 @@ public class A32_TM_ServerModel {
     }
     public boolean isValidModel(String potModel){
         String model = potModel.replace(" ","");
-        if(model.length() !=20){
+        if(model.length()%5 !=0){
             return false;
         }
         for(int i = 0; i <model.length(); i++){
