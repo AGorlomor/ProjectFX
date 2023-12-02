@@ -1,0 +1,4 @@
+error: file not found: main\java\Projects\Main.java
+Usage: javac <options> <source files>
+use --help for a list of possible options
+warning: [path] Invalid filename: /lib/javafx/lib/*

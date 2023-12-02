@@ -1,12 +1,11 @@
 package Projects;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -39,6 +38,7 @@ public class A32_TM_ClientView extends Application {
     Button runButton;
 
     TextArea outputText;
+    MenuBar menuBar;
 
     A32_TM_ClientController clientController;
 
@@ -53,16 +53,17 @@ public class A32_TM_ClientView extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-
-        stage.setHeight(stageHight);
-        stage.setWidth(stageWidth);
+        this.stage =stage;
+        this.stage.setHeight(stageHight);
+        this.stage.setWidth(stageWidth);
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root,stageHight, stageWidth);
 
         bannerContainer = new VBox(10);
+        menuBar = createMenuBar();
         bannerImage = new ImageView("tm-client.png");
         bannerContainer.setAlignment(Pos.CENTER);
-        bannerContainer.getChildren().add(bannerImage);
+        bannerContainer.getChildren().addAll(menuBar,bannerImage);
 
 
         outputText = new TextArea();
@@ -123,8 +124,10 @@ public class A32_TM_ClientView extends Application {
         root.setBottom(inputContainer);
 
 
-        stage.setScene(scene);
-        stage.show();
+
+
+        this.stage.setScene(scene);
+        this.stage.show();
 
 
     }
@@ -133,7 +136,7 @@ public class A32_TM_ClientView extends Application {
 
     }
     public void appendToOutput(String text) {
-        outputText.appendText(text + "\n");
+        this.outputText.appendText(text + "\n");
     }
     public boolean isInt(String num){
         try {
@@ -147,5 +150,23 @@ public class A32_TM_ClientView extends Application {
         Alert alert = new Alert(Alert.AlertType.WARNING, alertText);
         alert.showAndWait();
     }
+    public MenuBar createMenuBar(){
+        Scene scene = new Scene(new Group(),400,300);
+        Menu fileMenu = new Menu("File");
+        MenuItem exitMenuItem = new MenuItem("Exit");
+        MenuItem closeMenuItem = new MenuItem("Close");
+        exitMenuItem.setOnAction(Event -> {
+            Platform.exit();
+            System.exit(0);
+        });
+        closeMenuItem.setOnAction(Event ->{
+            stage.close();
+        });
+        fileMenu.getItems().addAll(exitMenuItem,closeMenuItem);
+        MenuBar menuBar = new MenuBar();
+        menuBar.getMenus().addAll(fileMenu);
+        return menuBar;
+    }
+
 
 }

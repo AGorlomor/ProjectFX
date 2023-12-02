@@ -1,9 +1,11 @@
 package Projects;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -35,6 +37,9 @@ public class A32_TM_ServerView extends Application {
     VBox outputbox;
     TextArea outputText;
     A32_TM_ServerController serverController;
+    Stage stage;
+    MenuBar menuBar;
+
 
     public A32_TM_ServerView() {
         this.serverController = new A32_TM_ServerController();
@@ -46,15 +51,17 @@ public class A32_TM_ServerView extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        this.stage = stage;
         stage.setHeight(stageHeight);
         stage.setWidth(stageWidth);
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root, stageWidth, stageHeight);
 
         bannerBox =new VBox(10);
+        menuBar = createMenuBar();
         bannerImage = new ImageView("tm-server.png");
         bannerBox.setAlignment(Pos.CENTER);
-        bannerBox.getChildren().add(bannerImage);
+        bannerBox.getChildren().addAll(menuBar,bannerImage);
 
         inputContainer = new VBox(10);
         inputContainer.setAlignment(Pos.CENTER);
@@ -122,5 +129,22 @@ public class A32_TM_ServerView extends Application {
     public void showAlertAndWait(String alertText){
         Alert alert = new Alert(Alert.AlertType.WARNING, alertText);
         alert.showAndWait();
+    }
+    public MenuBar createMenuBar(){
+        Scene scene = new Scene(new Group(),400,300);
+        Menu fileMenu = new Menu("File");
+        MenuItem exitMenuItem = new MenuItem("Exit");
+        MenuItem closeMenuItem = new MenuItem("Close");
+        exitMenuItem.setOnAction(Event -> {
+            Platform.exit();
+            System.exit(0);
+        });
+        closeMenuItem.setOnAction(Event ->{
+            stage.close();
+        });
+        fileMenu.getItems().addAll(exitMenuItem,closeMenuItem);
+        MenuBar menuBar = new MenuBar();
+        menuBar.getMenus().addAll(fileMenu);
+        return menuBar;
     }
 }
