@@ -264,10 +264,33 @@ public class A32_TM_ClientView extends Application {
             }
         });
         validateMenuItem.setOnAction(Event->{
+            try {
+                if(clientController.validateModel(modelTextField.getText())){
+                    showAlertAndWait("Valid Model! \n you may send the model to the server");
+                }
+                else {
+                    showAlertAndWait("Invalid Model!");
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
         });
         runMenuItem.setOnAction(Event->{
+            try {
+                clientController.receiveModel();
+                //clientController.receiveModel();
+                clientController.model = modelTextField.getText();
+                this.clientTMView = new A32_Client_TMView(modelTextField.getText().replace(" ",""));
+                Stage newStage = new Stage();
+                clientTMView.start(newStage);
+                newStage.show();
+                clientTMView.appendToOutput("Model: "+modelTextField.getText());
+                clientTMView.simulate();
 
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         });
         connectMenuItem.setOnAction(Event->{
             if(isInt(serverPort.getText())) {

@@ -43,6 +43,7 @@ public class A32_TM_ServerView extends Application {
     Button modelButton;
     CheckBox finalizeCheckBox;
     Button endButton;
+
     Button closeButton;
 
     VBox outputbox;
@@ -178,10 +179,10 @@ public class A32_TM_ServerView extends Application {
         MenuItem closeMenuItem = new MenuItem("Close");
 
         Menu networkMenu = new Menu("Network");
-        MenuItem connectMenuItem = new MenuItem("Connect");
-        MenuItem disconnect = new MenuItem("Disconnect");
+        MenuItem startMenuItem = new MenuItem("Start");
+        MenuItem endMenuItem = new MenuItem("End");
 
-        Menu controls = new Menu("Controls");
+        Menu controlsMenu = new Menu("Controls");
         MenuItem modelMenuItem = new MenuItem("Model");
         exitMenuItem.setOnAction(Event -> {
             Platform.exit();
@@ -190,9 +191,34 @@ public class A32_TM_ServerView extends Application {
         closeMenuItem.setOnAction(Event ->{
             stage.close();
         });
+        startMenuItem.setOnAction(Event->{
+            startButton.setDisable(true);
+            serverController.startServer(getServerPort());
+        });
+        endMenuItem.setOnAction(Event->{
+            if(finalizeCheckBox.isSelected()){
+                Alert lastAlert = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure you want to disconnect the server");
+                Optional<ButtonType> result = lastAlert.showAndWait();
+
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+                    // serverController.closeServer();
+                    startButton.setDisable(false);
+                    closeButton.setDisable(false);
+                }
+
+            }
+            else {
+                showAlertAndWait("To finalize disconnecting the server check the Finalize checkbox");
+            }
+        });
+        modelMenuItem.setOnAction(Event->{
+            appendToOutput(serverController.modelTM);
+        });
+        controlsMenu.getItems().addAll(modelMenuItem);
+        networkMenu.getItems().addAll(startMenuItem,endMenuItem);
         fileMenu.getItems().addAll(exitMenuItem,closeMenuItem);
         MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(fileMenu);
+        menuBar.getMenus().addAll(fileMenu,networkMenu,controlsMenu);
         return menuBar;
     }
 }
