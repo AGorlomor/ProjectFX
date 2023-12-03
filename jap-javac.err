@@ -1,4 +1,67 @@
-error: file not found: main\java\Projects\Main.java
-Usage: javac <options> <source files>
-use --help for a list of possible options
-warning: [path] Invalid filename: /lib/javafx/lib/*
+src\main\java\Projects\Main.java:3: error: package javafx.application does not exist
+import javafx.application.Application;
+                         ^
+src\main\java\Projects\Main.java:4: error: package javafx.geometry does not exist
+import javafx.geometry.Pos;
+                      ^
+src\main\java\Projects\Main.java:5: error: package javafx.scene does not exist
+import javafx.scene.Group;
+                   ^
+src\main\java\Projects\Main.java:6: error: package javafx.scene does not exist
+import javafx.scene.Parent;
+                   ^
+src\main\java\Projects\Main.java:7: error: package javafx.scene does not exist
+import javafx.scene.Scene;
+                   ^
+src\main\java\Projects\Main.java:8: error: package javafx.scene.control does not exist
+import javafx.scene.control.Button;
+                           ^
+src\main\java\Projects\Main.java:9: error: package javafx.scene.control does not exist
+import javafx.scene.control.ComboBox;
+                           ^
+src\main\java\Projects\Main.java:10: error: package javafx.scene.control does not exist
+import javafx.scene.control.Label;
+                           ^
+src\main\java\Projects\Main.java:11: error: package javafx.scene.image does not exist
+import javafx.scene.image.Image;
+                         ^
+src\main\java\Projects\Main.java:12: error: package javafx.scene.image does not exist
+import javafx.scene.image.ImageView;
+                         ^
+src\main\java\Projects\Main.java:13: error: package javafx.scene.layout does not exist
+import javafx.scene.layout.HBox;
+                          ^
+src\main\java\Projects\Main.java:14: error: package javafx.scene.layout does not exist
+import javafx.scene.layout.VBox;
+                          ^
+src\main\java\Projects\Main.java:15: error: package javafx.stage does not exist
+import javafx.stage.Stage;
+                   ^
+src\main\java\Projects\Main.java:20: error: cannot find symbol
+public class Main extends Application {
+                          ^
+  symbol: class Application
+src\main\java\Projects\Main.java:38: error: cannot find symbol
+    public void start(Stage stage) throws Exception {
+                      ^
+  symbol:   class Stage
+  location: class Main
+src\main\java\Projects\Main.java:28: error: cannot find symbol
+        launch(args);
+        ^
+  symbol:   method launch(String[])
+  location: class Main
+src\main\java\Projects\Main.java:37: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+src\main\java\Projects\Main.java:39: error: cannot find symbol
+        Launcher launcher = new Launcher();
+        ^
+  symbol:   class Launcher
+  location: class Main
+src\main\java\Projects\Main.java:39: error: cannot find symbol
+        Launcher launcher = new Launcher();
+                                ^
+  symbol:   class Launcher
+  location: class Main
+19 errors

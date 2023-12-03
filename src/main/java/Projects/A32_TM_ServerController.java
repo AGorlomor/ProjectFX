@@ -112,7 +112,6 @@ public class A32_TM_ServerController implements Runnable {
                 while (this.sock.isConnected()) {
                     this.data = in.readLine();
                     if (data == null) {
-                        // Client disconnected
                         break;
                     }
 
@@ -164,7 +163,6 @@ public class A32_TM_ServerController implements Runnable {
             } catch (IOException ioe) {
                 System.out.println(ioe);
             } finally {
-                // Close the streams in the finally block
                 clientOut.close();
                 try {
                     in.close();

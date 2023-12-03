@@ -60,6 +60,8 @@ public class A32_TM_ClientController implements Runnable {
         this.stage = new Stage();
         clientView = new A32_TM_ClientView(this);
         clientView.start(this.stage);
+        this.hostName = HOSTNAME;
+        this.portNumber = PORT;
     }
 
 
@@ -69,9 +71,8 @@ public class A32_TM_ClientController implements Runnable {
      * @param args Command line arguments.
      * @throws Exception If an error occurs during execution.
      */
-    public static void main(String args[]) throws Exception {
-        hostName = HOSTNAME;
-        portNumber = PORT;
+    public static void main() throws Exception {
+
 
     }
     /**
@@ -87,7 +88,6 @@ public class A32_TM_ClientController implements Runnable {
         this.portNumber = Integer.parseInt(portNumber);
         clientView.appendToOutput("Connecting to server on " + hostName + " at port " + portNumber);
 
-        // Ensure clientView is not null before starting the thread
         if (clientView != null) {
             new Thread(this).start();
         } else {
@@ -221,7 +221,6 @@ public class A32_TM_ClientController implements Runnable {
 
                 // Check if response is null
                 if (response == null) {
-                    // Handle the situation where the response is null
                     break;
                 }
 
@@ -239,8 +238,8 @@ public class A32_TM_ClientController implements Runnable {
 
                         // Update local state for disconnection
                         connected = false;
-                        strcliid = null; // Reset client ID or set it to a default value
-                        sock = null; // Set the socket to null or any appropriate value
+                        strcliid = null;
+                        sock = null;
                     case "02":
                         clientView.appendToOutput(dis.readLine());
                         //clientView.appendToOutput(dis.readLine());

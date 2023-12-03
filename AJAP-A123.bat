@@ -17,11 +17,11 @@ SET JARNAME=jap.jar
 SET JAROUT=jap-jar.out
 SET JARERR=jap-jar.err
 SET DOCDIR=Docs
-SET DOCPACK=src/main/java\Projects
+SET DOCPACK=src/main/java/Projects
 SET PACKAGE=Projects
 SET DOCERR=jap-javadoc.err
 SET MAINCLASSSRC=src/main/java/Projects/Main.java
-SET MAINCLASSBIN=target/classes/Projects/Main.class
+SET MAINCLASSBIN=Main
 SET IMAGES=target/classes
 SET RESOURCES=src/main/resources
 
@@ -62,7 +62,6 @@ ECHO "0. Preconfiguring ................."
 mkdir "%BINDIR%"
 mkdir "%BINDIR%\%PACKAGE%"
 copy "%SRCDIR%\%PACKAGE%\*.png" "%BINDIR%\%PACKAGE%"
-copy "%SRCDIR%\%PACKAGE%\*.gif" "%BINDIR%\%PACKAGE%"
 
 ECHO "1. Compiling ......................"
 javac -Xlint -cp ".;%LIBDIR%/*" %MAINCLASSSRC% -d bin

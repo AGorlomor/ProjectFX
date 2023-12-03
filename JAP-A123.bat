@@ -9,7 +9,7 @@ CLS
 
 :: LOCAL VARIABLES ....................................................
 
-SET JAVAFXDIR=/lib/javafx/lib
+SET JAVAFXDIR=lib/javafx/lib
 SET SRCDIR=src
 SET BINDIR=bin
 SET BINOUT=jap-javac.out
@@ -21,11 +21,12 @@ SET DOCDIR=doc
 SET DOCPACK=Projects
 SET DOCOUT=jap-javadoc.out
 SET DOCERR=jap-javadoc.err
-SET MAINCLASSSRC=main/java/Projects/Main.java
-SET MAINCLASSBIN=java/Projects/Main.GameBasic
+SET MAINCLASSSRC=src\main\java\Projects\Main.java
+SET MAINCLASSBIN=Main
 SET MODULELIST=javafx.controls,javafx.fxml
+SET IMAGES = Images
 
-@echo off
+@echo on
 
 ECHO "                                                                     "
 ECHO "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
@@ -46,7 +47,7 @@ ECHO "@         ((((((((((( ((()         ###   ######    ###     ######   @"
 ECHO "@         ((         ((           ###                               @"
 ECHO "@          (((((((((((                                              @"
 ECHO "@   (((                      ((          /-----------------\        @"
-ECHO "@    ((((((((((((((((((((() ))           | BATTLESHIP GAME |        @"
+ECHO "@    ((((((((((((((((((((() ))           |     TM          |        @"
 ECHO "@         ((((((((((((((((()             \-----------------/        @"
 ECHO "@                                                                   @"
 ECHO "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
@@ -54,13 +55,20 @@ ECHO "                                                                     "
 
 :: EXECUTION STEPS  ...................................................
 
+ECHO "0. Preconfiguring ................."
+mkdir "%BINDIR%"
+mkdir "%BINDIR%\%PACKAGE%"
+mkdir "%BINDIR%\%SRCDIR%\%IMAGES%"
+copy "%SRCDIR%\%IMAGES%\*.png" "%BINDIR%\%SRCDIR%\%IMAGES%"
 
 ECHO "1. Compiling ......................"
-javac -Xlint -cp ".;%SRCDIR%;%JAVAFXDIR%/*" %MAINCLASSSRC% -d %BINDIR% > %BINOUT% 2> %BINERR%
+javac -Xlint -cp ".;%SRCDIR%" %MAINCLASSSRC% -d %BINDIR% 2> %BINERR%
+pause
 
 ECHO "2. Creating Jar ..................."
 cd bin
-jar cvfe %JARNAME% %MAINCLASSBIN% . > %JAROUT% 2> %JARERR%
+jar %JARNAME% %MAINCLASSBIN% . > %JAROUT% 2> %JARERR%
+pause
 
 ECHO "3. Creating Javadoc ..............."
 cd ..

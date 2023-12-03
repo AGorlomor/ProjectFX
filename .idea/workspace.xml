@@ -5,7 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9da89426-f573-431c-a84b-ed292c67daec" name="Changes" comment="Working version">
+      <change afterPath="$PROJECT_DIR$/GitScreanShot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/GOLBAnner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/banner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/icons8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/module-info.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/tm-client.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/tm-server.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/tm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/GOLBAnner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/banner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/icons8-application-32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/icons8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/module-info.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/tm-client.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/tm-server.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/tm.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AJAP-A123.bat" beforeDir="false" afterPath="$PROJECT_DIR$/AJAP-A123.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAP-A123.bat" beforeDir="false" afterPath="$PROJECT_DIR$/JAP-A123.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/labs-jar.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jap-javac.err" beforeDir="false" afterPath="$PROJECT_DIR$/jap-javac.err" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_Client_TMView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_Client_TMView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/Launcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701572414613</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Working version">
+      <created>1701573516171</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701573516171</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

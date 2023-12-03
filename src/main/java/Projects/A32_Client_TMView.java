@@ -68,7 +68,6 @@ public class A32_Client_TMView extends Application {
         modelTextField = new TextField();
         tapeTextField = new TextField();
 
-        // Initialize tapeTextField with the initial value of tape
         tapeTextField.setText(tape);
 
         backButton = new Button("Back");

@@ -103,8 +103,6 @@ public class Launcher extends Application {
 
         vbox.getChildren().addAll(hboxTop, hboxBot);
 
-
-        // Event handler for the Select button
         selectButton.setOnAction(event -> {
             String selectedOption = comboBox.getValue();
             if (selectedOption != null) {
@@ -130,12 +128,10 @@ public class Launcher extends Application {
                     controller.startView();
 
                 } else if (selectedOption.equals("A32[TMC] - Client:Turing Machine")) {
-//                    A32_TM_ClientController clientController;
+
 
                     try {
-                        String[] args = {"localhost", "3000"};
                         new A32_TM_ClientController();
-//                        clientController.main(args);
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
