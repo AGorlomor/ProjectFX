@@ -72,6 +72,9 @@ public class A32_TM_ServerView extends Application {
             serverController.startServer(getServerPort());
         });
         modelButton = new Button("Model");
+        modelButton.setOnAction(Event->{
+            appendToOutput(serverController.modelTM);
+        });
         finalizeCheckBox = new CheckBox("Finalize");
         endButton = new Button("End");
         endButton.setOnAction(Event ->{

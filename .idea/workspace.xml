@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9da89426-f573-431c-a84b-ed292c67daec" name="Changes" comment="network working with solved issues, working on TM rn">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_Client_TMView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_Client_TMView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_Client_TMView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701556790445</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="network working with solved issues, working on TM rn">
+      <created>1701568126249</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701568126249</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

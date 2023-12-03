@@ -35,7 +35,7 @@ public class A32_TM_ClientController implements Runnable {
     BufferedReader dis;
     PrintStream dat;
     String funcID;
-    String model;
+    String model = "";
 
 
     /**
@@ -202,10 +202,10 @@ public class A32_TM_ClientController implements Runnable {
                         //clientView.appendToOutput(dis.readLine());
                     case "03":
                         if (response != null) {
-                            /**
+
                             response = dis.readLine();
                             model = (response);
-                             **/
+
                             clientView.setmodelTM(model);
                             clientView.modelTextField.setText(model);
                             clientView.appendToOutput("Server model: " + model);

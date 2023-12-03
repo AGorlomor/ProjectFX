@@ -132,11 +132,12 @@ public class A32_TM_ClientView extends Application {
             try {
                 clientController.receiveModel();
                 //clientController.receiveModel();
+                clientController.model = modelTextField.getText();
                 this.clientTMView = new A32_Client_TMView(modelTextField.getText().replace(" ",""));
                 Stage newStage = new Stage();
                 clientTMView.start(newStage);
                 newStage.show();
-                clientTMView.appendToOutput("Model"+clientController.getModel());
+                clientTMView.appendToOutput("Model: "+modelTextField.getText());
                 clientTMView.simulate();
 
             } catch (Exception e) {
