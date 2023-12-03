@@ -1,7 +1,10 @@
 package Projects;
 
+import java.util.HashMap;
+
 public class A32_TM_ServerModel {
     A32_TM_ServerController serverController;
+    HashMap<String,String> hashMap;
 
     public A32_TM_ServerModel(A32_TM_ServerController serverController){
         this.serverController = serverController;

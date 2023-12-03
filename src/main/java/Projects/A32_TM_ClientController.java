@@ -106,6 +106,7 @@ public class A32_TM_ClientController implements Runnable {
         funcID = "03";
         if (connected && sock != null && sock.isConnected()) {
             this.dat.println(clientModel.encodeMsg(strcliid, funcID, "00"));
+
         } else {
             clientView.appendToOutput("Not connected to the server.");
         }
@@ -155,6 +156,7 @@ public class A32_TM_ClientController implements Runnable {
     }
 
 
+
     @Override
     public void run() {
 
@@ -200,14 +202,22 @@ public class A32_TM_ClientController implements Runnable {
                         //clientView.appendToOutput(dis.readLine());
                     case "03":
                         if (response != null) {
+                            /**
                             response = dis.readLine();
                             model = (response);
+                             **/
                             clientView.setmodelTM(model);
-                            clientView.model.setText(model);
+                            clientView.modelTextField.setText(model);
                             clientView.appendToOutput("Server model: " + model);
                         } else {
                             clientView.appendToOutput("Error receiving model.");
                         }
+                    case "05":
+                        model = dis.readLine();
+                    case "06":
+
+
+                    default:
                 }
             }
 
@@ -215,4 +225,8 @@ public class A32_TM_ClientController implements Runnable {
             throw new RuntimeException(e);
         }
     }
+    public String getModel(){
+        return model;
+    }
+
 }

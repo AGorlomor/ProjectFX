@@ -20,6 +20,7 @@ public class A32_TM_ServerController implements Runnable {
     static A32_TM_ServerView serverView;
     static Stage stage;
     String modelTM = "00000 01000 10010 11000";
+    String tape = "000000000000000000000000000000";
 
     private static Map<Integer, Worked> workedMap = new HashMap<>();
 
@@ -153,6 +154,8 @@ public class A32_TM_ServerController implements Runnable {
                                 } else {
                                     clientOut.println(strcliid + "#04#00");
                                 }
+                            case "05":
+                                clientOut.println(modelTM);
 
                             default:
                         }

@@ -2,9 +2,7 @@ package Projects;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.Event;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -32,7 +30,7 @@ public class A32_TM_ClientView extends Application {
     Button endButton;
 
     HBox inputLine2;
-    TextField model;
+    TextField modelTextField;
     Button validateButton;
     Button sendButton;
     Button receiveButton;
@@ -42,9 +40,11 @@ public class A32_TM_ClientView extends Application {
     MenuBar menuBar;
 
     A32_TM_ClientController clientController;
+    A32_Client_TMView clientTMView;
 
     public A32_TM_ClientView( A32_TM_ClientController clientController){
         this.clientController = clientController;
+
 
 
     }
@@ -96,11 +96,11 @@ public class A32_TM_ClientView extends Application {
         inputLine1.getChildren().addAll(userName,serverAddress,serverPort,connectButton,endButton);
 
         inputLine2 = new HBox(10);
-        model = new TextField();
+        modelTextField = new TextField();
         validateButton = new Button("validate");
         validateButton.setOnAction(Event->{
             try {
-                if(clientController.validateModel(model.getText())){
+                if(clientController.validateModel(modelTextField.getText())){
                     showAlertAndWait("Valid Model! \n you may send the model to the server");
                 }
                 else {
@@ -113,7 +113,7 @@ public class A32_TM_ClientView extends Application {
         sendButton = new Button("send");
         sendButton.setOnAction(Event->{
             try {
-                clientController.sendModel(model.getText());
+                clientController.sendModel(modelTextField.getText());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -122,13 +122,30 @@ public class A32_TM_ClientView extends Application {
         receiveButton.setOnAction(Event->{
             try {
                 clientController.receiveModel();
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
         runButton = new Button("run");
+        runButton.setOnAction(Event->{
+            try {
+                clientController.receiveModel();
+                //clientController.receiveModel();
+                this.clientTMView = new A32_Client_TMView(modelTextField.getText().replace(" ",""));
+                Stage newStage = new Stage();
+                clientTMView.start(newStage);
+                newStage.show();
+                clientTMView.appendToOutput("Model"+clientController.getModel());
+                clientTMView.simulate();
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+
         inputLine2.setAlignment(Pos.CENTER);
-        inputLine2.getChildren().addAll(model,validateButton,sendButton,receiveButton,runButton);
+        inputLine2.getChildren().addAll(modelTextField,validateButton,sendButton,receiveButton,runButton);
         inputContainer.setAlignment(Pos.CENTER);
         inputContainer.getChildren().addAll(inputLine1,inputLine2);
 
@@ -145,7 +162,7 @@ public class A32_TM_ClientView extends Application {
 
     }
     public void setmodelTM(String modelTM){
-        this.model.setText(modelTM);
+        this.modelTextField.setText(modelTM);
 
     }
     public void appendToOutput(String text) {
@@ -188,7 +205,7 @@ public class A32_TM_ClientView extends Application {
         });
         sentMenuItem.setOnAction(Event->{
             try {
-                clientController.sendModel(model.getText());
+                clientController.sendModel(modelTextField.getText());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -229,6 +246,17 @@ public class A32_TM_ClientView extends Application {
         menuBar.getMenus().addAll(fileMenu,controlsMenu,networkMenu);
         return menuBar;
     }
+    private void openResWindow() throws Exception {
+
+    }
+    public void appendTMWindow(String msg){
+        clientTMView.appendToOutput(msg);
+    }
 
 
+}
+class TM{
+    public TM(){
+
+    }
 }

@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9da89426-f573-431c-a84b-ed292c67daec" name="Changes" comment="network working with solved issues, working on TM rn">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_Client_TMView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +56,25 @@
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="Projects" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Launcher">
+    <configuration name="A32_Client_TMView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Projects.A32_Client_TMView" />
+      <module name="ProjectFX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Projects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="A32_TM_ClientView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Projects.A32_TM_ClientView" />
       <module name="ProjectFX" />
@@ -95,6 +117,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Launcher" />
+        <item itemvalue="Application.A32_Client_TMView" />
         <item itemvalue="Application.A32_TM_ClientView" />
         <item itemvalue="Application.Main" />
       </list>
@@ -144,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701555413346</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="network working with solved issues, working on TM rn">
+      <created>1701556790445</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701556790445</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,18 +200,58 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java</url>
+          <line>78</line>
+          <properties class="Projects.A32_TM_ClientController" method="validateModel">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java</url>
           <line>104</line>
+          <properties class="Projects.A32_TM_ClientController" method="receiveModel">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java</url>
+          <line>134</line>
+          <properties class="Projects.A32_TM_ClientController" method="sendModel">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java</url>
+          <line>143</line>
+          <properties class="Projects.A32_TM_ClientController" method="disconnect">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java</url>
+          <line>160</line>
+          <properties class="Projects.A32_TM_ClientController" method="run">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerController.java</url>
+          <line>105</line>
           <properties class="Projects.A32_TM_ServerController.Worked" method="run">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientView.java</url>
-          <line>102</line>
-          <option name="timeStamp" value="37" />
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
