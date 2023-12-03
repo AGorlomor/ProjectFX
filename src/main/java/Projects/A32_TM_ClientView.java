@@ -12,7 +12,15 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
+/**
+ * A32_TM_ClientView is a JavaFX application that serves as the graphical user interface
+ * for interacting with a Turing Machine server. It allows users to connect to the server,
+ * validate, send, receive, and run Turing Machine models. The application provides various
+ * controls and features for interacting with the server and visualizing the simulation results.
+ *
+ * @author Alexey Rudoy
+ * @version 3.5
+ */
 public class A32_TM_ClientView extends Application {
     Stage stage;
     int stageHight = 400;
@@ -41,7 +49,11 @@ public class A32_TM_ClientView extends Application {
 
     A32_TM_ClientController clientController;
     A32_Client_TMView clientTMView;
-
+    /**
+     * Constructor for A32_TM_ClientView class.
+     *
+     * @param clientController The controller responsible for handling client-server communication.
+     */
     public A32_TM_ClientView( A32_TM_ClientController clientController){
         this.clientController = clientController;
 
@@ -52,6 +64,13 @@ public class A32_TM_ClientView extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    /**
+     * The main entry point for the JavaFX application. It sets up the GUI components
+     * and initializes the stage.
+     *
+     * @param stage The primary stage for this application.
+     * @throws Exception If an error occurs during the application startup.
+     */
     @Override
     public void start(Stage stage) throws Exception {
         this.stage =stage;
@@ -162,13 +181,29 @@ public class A32_TM_ClientView extends Application {
 
 
     }
+    /**
+     * Sets the Turing Machine model in the modelTextField.
+     *
+     * @param modelTM The Turing Machine model to be set.
+     */
     public void setmodelTM(String modelTM){
         this.modelTextField.setText(modelTM);
 
     }
+    /**
+     * Appends the given text to the output TextArea.
+     *
+     * @param text The text to append to the output.
+     */
     public void appendToOutput(String text) {
         this.outputText.appendText(text + "\n");
     }
+    /**
+     * Checks if the given string represents an integer.
+     *
+     * @param num The string to check.
+     * @return True if the string is an integer, false otherwise.
+     */
     public boolean isInt(String num){
         try {
             Integer.parseInt(num);
@@ -177,10 +212,20 @@ public class A32_TM_ClientView extends Application {
             return false;
         }
     }
+    /**
+     * Shows a warning alert with the given text and waits for user acknowledgment.
+     *
+     * @param alertText The text for the warning alert.
+     */
     public void showAlertAndWait(String alertText){
         Alert alert = new Alert(Alert.AlertType.WARNING, alertText);
         alert.showAndWait();
     }
+    /**
+     * Creates a MenuBar with File, Controls, and Network menus, along with corresponding menu items.
+     *
+     * @return The created MenuBar.
+     */
     public MenuBar createMenuBar(){
         Menu fileMenu = new Menu("File");
         MenuItem exitMenuItem = new MenuItem("Exit");
@@ -250,14 +295,14 @@ public class A32_TM_ClientView extends Application {
     private void openResWindow() throws Exception {
 
     }
+    /**
+     * Appends the provided message to the output of the associated clientTMView.
+     *
+     * @param msg The message to append to the output.
+     */
     public void appendTMWindow(String msg){
         clientTMView.appendToOutput(msg);
     }
 
 
-}
-class TM{
-    public TM(){
-
-    }
 }

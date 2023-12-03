@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9da89426-f573-431c-a84b-ed292c67daec" name="Changes" comment="network working with solved issues, working on TM rn">
+    <list default="true" id="9da89426-f573-431c-a84b-ed292c67daec" name="Changes" comment="Working version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_Client_TMView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_Client_TMView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Projects/A32_TM_ServerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701568126249</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Working version">
+      <created>1701570828220</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701570828220</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -200,14 +208,15 @@
     <MESSAGE value="network working version" />
     <MESSAGE value="network working version with known issues" />
     <MESSAGE value="network working with solved issues, working on TM rn" />
-    <option name="LAST_COMMIT_MESSAGE" value="network working with solved issues, working on TM rn" />
+    <MESSAGE value="Working version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java</url>
-          <line>78</line>
+          <line>107</line>
           <properties class="Projects.A32_TM_ClientController" method="validateModel">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -216,7 +225,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java</url>
-          <line>104</line>
+          <line>137</line>
           <properties class="Projects.A32_TM_ClientController" method="receiveModel">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -225,7 +234,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java</url>
-          <line>134</line>
+          <line>172</line>
           <properties class="Projects.A32_TM_ClientController" method="sendModel">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -234,7 +243,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java</url>
-          <line>143</line>
+          <line>184</line>
           <properties class="Projects.A32_TM_ClientController" method="disconnect">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -243,7 +252,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Projects/A32_TM_ClientController.java</url>
-          <line>160</line>
+          <line>204</line>
           <properties class="Projects.A32_TM_ClientController" method="run">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

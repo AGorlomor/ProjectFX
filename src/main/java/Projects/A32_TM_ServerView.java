@@ -17,7 +17,18 @@ import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.util.Optional;
-
+/**
+ * A32_TM_ServerView is a JavaFX application that provides a graphical user interface
+ * for controlling and monitoring a Turing Machine server. It allows users to start and
+ * stop the server, view the current Turing Machine model, and manage server connections.
+ *
+ * The view includes a menu bar with File options, controls for starting and ending the server,
+ * displaying the current model, and handling server disconnection. Additionally, it features
+ * an output area for displaying server-related information.
+ *
+ * @author Alexey Rudoy
+ * @version 3.5
+ */
 public class A32_TM_ServerView extends Application {
     int stageHeight = 400;
     int stageWidth = 600;
@@ -44,11 +55,19 @@ public class A32_TM_ServerView extends Application {
     public A32_TM_ServerView() {
         this.serverController = new A32_TM_ServerController();
     }
-
+    /**
+     * Constructor for A32_TM_ServerView class. Initializes the server controller.
+     */
     public static void main(String[] args) {
         launch(args);
     }
-
+    /**
+     * The main entry point for the JavaFX application. It sets up the GUI components
+     * and initializes the stage.
+     *
+     * @param stage The primary stage for this application.
+     * @throws Exception If an error occurs during the application startup.
+     */
     @Override
     public void start(Stage stage) throws Exception {
         this.stage = stage;
@@ -122,17 +141,36 @@ public class A32_TM_ServerView extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
+    /**
+     * Retrieves the server port specified in the input field.
+     *
+     * @return The server port as a string.
+     */
     public String getServerPort() {
         return serverPort.getText();
     }
+    /**
+     * Appends the given text to the output TextArea.
+     *
+     * @param text The text to append to the output.
+     */
     public void appendToOutput(String text) {
         outputText.appendText(text + "\n");
     }
+    /**
+     * Shows a warning alert with the given text and waits for user acknowledgment.
+     *
+     * @param alertText The text for the warning alert.
+     */
     public void showAlertAndWait(String alertText){
         Alert alert = new Alert(Alert.AlertType.WARNING, alertText);
         alert.showAndWait();
     }
+    /**
+     * Creates a MenuBar with File menu options.
+     *
+     * @return The created MenuBar.
+     */
     public MenuBar createMenuBar(){
         Scene scene = new Scene(new Group(),400,300);
         Menu fileMenu = new Menu("File");

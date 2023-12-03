@@ -21,7 +21,7 @@ import java.util.HashMap;
  * model and initial tape. The simulation results are displayed in a TextArea.
  *
  * @author Alexey Rudoy
- * @version 3.5
+ * @version 1.4
  */
 public class A32_Client_TMView extends Application {
     int stageHeight = 600;

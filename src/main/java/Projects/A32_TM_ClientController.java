@@ -4,7 +4,18 @@ import javafx.stage.Stage;
 
 import java.net.*;
 import java.io.*;
-
+/**
+ * A32_TM_ClientController is the controller class for the Turing Machine client application.
+ * It manages the communication with the server, handles user input and events, and interacts
+ * with the client model and view. The controller implements the Runnable interface to run
+ * as a separate thread for handling server communication.
+ *
+ * This class is part of the Model-View-Controller (MVC) architecture, where it acts as
+ * the controller that orchestrates the interaction between the model and the view.
+ *
+ * @author Alexey Rudoy
+ * @version 3.6
+ */
 public class A32_TM_ClientController implements Runnable {
     /**
      * Default port.
@@ -39,7 +50,10 @@ public class A32_TM_ClientController implements Runnable {
 
 
     /**
-     * Default constructor.
+     * Default constructor for A32_TM_ClientController class.
+     * Initializes the client model and view and starts the view.
+     *
+     * @throws Exception If an error occurs during initialization.
      */
     public A32_TM_ClientController() throws Exception {
         this.clientModel = new A32_TM_ClientModel();
@@ -50,16 +64,23 @@ public class A32_TM_ClientController implements Runnable {
 
 
     /**
-     * Main method.
+     * Main method for the client application.
      *
-     * @param args Param arguments.
+     * @param args Command line arguments.
+     * @throws Exception If an error occurs during execution.
      */
     public static void main(String args[]) throws Exception {
         hostName = HOSTNAME;
         portNumber = PORT;
 
     }
-
+    /**
+     * Connects to the server using the provided hostname and port number.
+     * Starts a new thread to handle server communication.
+     *
+     * @param hostName   The hostname of the server.
+     * @param portNumber The port number for communication.
+     */
     public void connectToServer(String hostName, String portNumber) {
 
         this.hostName = hostName;
@@ -75,6 +96,14 @@ public class A32_TM_ClientController implements Runnable {
 
 
     }
+
+    /**
+     * Validates a Turing Machine model by sending a validation request to the server.
+     *
+     * @param potModel The potential Turing Machine model to be validated.
+     * @return True if the model is valid; false otherwise.
+     * @throws IOException If an I/O error occurs during validation.
+     */
 
     public boolean validateModel(String potModel) throws IOException {
         funcID = "04";
@@ -101,7 +130,11 @@ public class A32_TM_ClientController implements Runnable {
 
         return false;
     }
-
+    /**
+     * Sends a request to the server to receive the current Turing Machine model.
+     *
+     * @throws IOException If an I/O error occurs during the model retrieval.
+     */
     public void receiveModel() throws IOException {
         funcID = "03";
         if (connected && sock != null && sock.isConnected()) {
@@ -131,7 +164,12 @@ public class A32_TM_ClientController implements Runnable {
          **/
     }
 
-
+    /**
+     * Sends a Turing Machine model to the server.
+     *
+     * @param model The Turing Machine model to be sent to the server.
+     * @throws IOException If an I/O error occurs during the model sending.
+     */
     public void sendModel(String model) throws IOException {
         funcID = "02";
         if (connected && sock != null && sock.isConnected()) {
@@ -140,7 +178,10 @@ public class A32_TM_ClientController implements Runnable {
             clientView.appendToOutput("Not connected to the server.");
         }
     }
-
+    /**
+     * Disconnects from the server by sending a disconnection message.
+     * Handles the cleanup and updates the client view accordingly.
+     */
     public void disconnect() {
 
             if (connected && sock != null && sock.isConnected()) {
@@ -156,7 +197,10 @@ public class A32_TM_ClientController implements Runnable {
     }
 
 
-
+    /**
+     * The run method for the separate thread handling server communication.
+     * Listens for server responses and updates the client view based on the received data.
+     */
     @Override
     public void run() {
 
@@ -225,6 +269,11 @@ public class A32_TM_ClientController implements Runnable {
             throw new RuntimeException(e);
         }
     }
+    /**
+     * Retrieves the current Turing Machine model.
+     *
+     * @return The current Turing Machine model.
+     */
     public String getModel(){
         return model;
     }
